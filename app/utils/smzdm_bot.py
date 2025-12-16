@@ -31,7 +31,7 @@ class SmzdmBot:
     def _user_agent(self):
         try:
             device_smzdm = self.cookies_dict["device_smzdm"]
-            device_smzdm_version = self.cookies_dict.get("device_smzdm_version", "11.1.43"),
+            device_smzdm_version = self.cookies_dict["device_smzdm_version"]
             device_smzdm_version_code = self.cookies_dict["device_smzdm_version_code"]
             device_system_version = self.cookies_dict["device_system_version"]
             device_type = self.cookies_dict["device_type"]
@@ -77,7 +77,7 @@ class SmzdmBot:
             "weixin": "1",
             "captcha": "",
             "f": self.cookies_dict["device_smzdm"],
-            "v": self.cookies_dict["device_smzdm_version"],
+            "v": self.cookies_dict.get("device_smzdm_version", "11.1.43"),
             "touchstone_event": "",
             "time": self._timestamp() * 1000,
             "token": self.cookies_dict["sess"],
